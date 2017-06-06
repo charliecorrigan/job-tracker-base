@@ -8,8 +8,8 @@ describe "User sees job count for tags associated with a job" do
     job3 = company.jobs.create!(title: "Designer", level_of_interest: 60, city: "Denver")
     job4 = company.jobs.create!(title: "Boss Guy", level_of_interest: 2, city: "Denver")
 
-    tag1 = Tag.create("Software")
-    tag2 = Tag.create("Good-Location")
+    tag1 = Tag.create(name: "Software")
+    tag2 = Tag.create(name: "Good-Location")
     jobs_tags1 = JobsTag.create(job_id: job1.id, tag_id: tag1.id)
     jobs_tags2 = JobsTag.create(job_id: job1.id, tag_id: tag2.id)
     jobs_tags3 = JobsTag.create(job_id: job2.id, tag_id: tag2.id)
@@ -17,7 +17,7 @@ describe "User sees job count for tags associated with a job" do
     jobs_tags5 = JobsTag.create(job_id: job4.id, tag_id: tag2.id)
     jobs_tags6 = JobsTag.create(job_id: job3.id, tag_id: tag1.id)
 
-    visit company_job_path(company, job)
+    visit company_job_path(company, job1)
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
