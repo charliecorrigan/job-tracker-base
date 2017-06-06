@@ -1,8 +1,6 @@
 Title: <%= @job.title %>
 <br>
-Tags: <% @job.tags.each do |tag| %>
-        <%= tag.name %> - <%= tag.jobs.count %><br>
-      <% end %><br>
+Tags: <%= @job.list_of_tags %><br>
 Description: <%= @job.description %>
 <br>
 

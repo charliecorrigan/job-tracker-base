@@ -19,6 +19,7 @@ describe Job do
       end
     end
 
+
     context "valid attributes" do
       it "is valid with a title and level of interest" do
         job = Job.new(title: "Developer", level_of_interest: 40, city: "Denver")
